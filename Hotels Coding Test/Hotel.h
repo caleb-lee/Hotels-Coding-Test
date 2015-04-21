@@ -6,6 +6,10 @@
 //  Copyright (c) 2015年 Caleb Lee. All rights reserved.
 //
 
+// This class represents a real-life hotel. It contains the name, thumbnail, location
+//  information, rates, and ratings of the given hotel, as well as identifying data
+//  such as a Master ID and key.
+
 #import <Foundation/Foundation.h>
 
 @interface Hotel : NSObject
