@@ -63,6 +63,9 @@
                             <constraint firstItem="9Fd-jX-dPf" firstAttribute="leading" secondItem="7Oa-g8-lgf" secondAttribute="leading" id="rdy-wG-bcX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="9Fd-jX-dPf" id="Tta-tx-3Wv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTj-Wz-LgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,6 +117,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Nif-iJ-15c" id="ipu-2j-h15"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

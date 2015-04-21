@@ -33,7 +33,7 @@
 
 // gets number of hotels in manager
 - (NSInteger)count {
-    return [_hotels count];
+    return [self.hotels count];
 }
 
 // gets hotel at index (required: 0 <= index < count)
@@ -41,13 +41,13 @@
     if (index < 0 || index >= [self count])
         [NSException raise:@"Out of Bounds Exception" format:@"hotelAtIndex: index %ld is out of bounds.", (long)index];
     
-    return (Hotel*)[_hotels objectAtIndex:index];
+    return (Hotel*)[self.hotels objectAtIndex:index];
 }
 
 // sorts the list of hotels by the user-given scheme
 - (void)sortHotelsByScheme:(HotelManagerSortScheme)sortScheme {
     // check the current sort scheme; if it's the same as the user-given sort scheme, don't bother! we already have a sorted array
-    if (sortScheme == _currentSortScheme)
+    if (sortScheme == self.currentSortScheme)
         return;
     
     // make first sort descriptor with the user-given sort scheme
@@ -68,13 +68,13 @@
     
     // make a sorted array using sort descriptors
     NSArray *sortDescriptors = @[variableSortDescriptor, hotelNameSortDescriptor];
-    NSArray *sortedArray = [_hotels sortedArrayUsingDescriptors:sortDescriptors];
+    NSArray *sortedArray = [self.hotels sortedArrayUsingDescriptors:sortDescriptors];
     
     // set the class's array as the sorted array
-    _hotels = [[NSMutableArray alloc] initWithArray:sortedArray];
+    self.hotels = [[NSMutableArray alloc] initWithArray:sortedArray];
     
     // set the current sort scheme
-    _currentSortScheme = sortScheme;
+    self.currentSortScheme = sortScheme;
 }
 
 // when this class gets initialized, we want to generate the list of hotels
@@ -89,7 +89,7 @@
 // initializes the hotels array from json
 - (void)generateHotelArray {
     // alloc/init array
-    _hotels = [[NSMutableArray alloc] init];
+    self.hotels = [[NSMutableArray alloc] init];
     
     // get array of hotel dictionaries
     NSArray *hotelDictionaries = [self readJSONHotels];
@@ -97,11 +97,11 @@
     // fill hotels array with hotel objects created from the dictionary array
     for (NSDictionary *hotelDictionary in hotelDictionaries) {
         Hotel *hotel = [[Hotel alloc] initWithDictionary:hotelDictionary];
-        [_hotels addObject:hotel];
+        [self.hotels addObject:hotel];
     }
     
     // sorts array by lowest to highest total rate
-    _currentSortScheme = HotelManagerSortSchemeDistanceFromCurrentLocationAscending; // set the current sort scheme to something other than what we want
+    self.currentSortScheme = HotelManagerSortSchemeDistanceFromCurrentLocationAscending; // set the current sort scheme to something other than what we want
                                                                                         // so that the hotels get resorted for sure
     [self sortHotelsByScheme:HotelManagerSortSchemeTotalRateAscending];
 }

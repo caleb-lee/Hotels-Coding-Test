@@ -44,27 +44,27 @@
         // fill in hotel info from the dictionary
         
         // basic info
-        _masterID = ((NSNumber*)[dictionary objectForKey:@"master_id"]).integerValue;
-        _key = (NSString*)[dictionary objectForKey:@"key"];
-        _name = (NSString*)[dictionary objectForKey:@"name"];
-        _thumbnailURL = (NSString*)[dictionary objectForKey:@"thumbnail"];
+        self.masterID = ((NSNumber*)[dictionary objectForKey:@"master_id"]).integerValue;
+        self.key = (NSString*)[dictionary objectForKey:@"key"];
+        self.name = (NSString*)[dictionary objectForKey:@"name"];
+        self.thumbnailURL = (NSString*)[dictionary objectForKey:@"thumbnail"];
         
         // location
-        _streetAddress = (NSString*)[dictionary objectForKey:@"street_address"];
-        _latitude = ((NSNumber*)[dictionary objectForKey:@"latitude"]).doubleValue;
-        _longitude = ((NSNumber*)[dictionary objectForKey:@"longitude"]).doubleValue;
-        _distance = ((NSNumber*)[dictionary objectForKey:@"distance"]).doubleValue;
-        _direction = (NSString*)[dictionary objectForKey:@"direction"];
+        self.streetAddress = (NSString*)[dictionary objectForKey:@"street_address"];
+        self.latitude = ((NSNumber*)[dictionary objectForKey:@"latitude"]).doubleValue;
+        self.longitude = ((NSNumber*)[dictionary objectForKey:@"longitude"]).doubleValue;
+        self.distance = ((NSNumber*)[dictionary objectForKey:@"distance"]).doubleValue;
+        self.direction = (NSString*)[dictionary objectForKey:@"direction"];
         
         // ratings
-        _starRating = ((NSNumber*)[dictionary objectForKey:@"star_rating"]).integerValue;
-        _reviewScore = ((NSNumber*)[dictionary objectForKey:@"review_score"]).doubleValue;
+        self.starRating = ((NSNumber*)[dictionary objectForKey:@"star_rating"]).integerValue;
+        self.reviewScore = ((NSNumber*)[dictionary objectForKey:@"review_score"]).doubleValue;
         
         // prices
-        _nightlyRate = ((NSNumber*)[dictionary objectForKey:@"nightly_rate"]).doubleValue;
-        _promotedNightlyRate = ((NSNumber*)[dictionary objectForKey:@"promoted_nightly_rate"]).doubleValue;
-        _totalRate = ((NSNumber*)[dictionary objectForKey:@"total_rate"]).doubleValue;
-        _promotedTotalRate = ((NSNumber*)[dictionary objectForKey:@"promoted_total_rate"]).doubleValue;
+        self.nightlyRate = ((NSNumber*)[dictionary objectForKey:@"nightly_rate"]).doubleValue;
+        self.promotedNightlyRate = ((NSNumber*)[dictionary objectForKey:@"promoted_nightly_rate"]).doubleValue;
+        self.totalRate = ((NSNumber*)[dictionary objectForKey:@"total_rate"]).doubleValue;
+        self.promotedTotalRate = ((NSNumber*)[dictionary objectForKey:@"promoted_total_rate"]).doubleValue;
     }
     
     return self;

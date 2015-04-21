@@ -10,7 +10,7 @@
 #import "HotelManager.h"
 
 @interface ListViewController ()
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 @implementation ListViewController
@@ -18,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // refresh table data whenever the view appears
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

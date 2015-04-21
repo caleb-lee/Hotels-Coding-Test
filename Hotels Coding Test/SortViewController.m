@@ -10,8 +10,8 @@
 #import "HotelManager.h"
 
 @interface SortViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)doneButtonAction:(id)sender;
-
 @end
 
 @implementation SortViewController
@@ -31,12 +31,24 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.textLabel.text = @"Sort by price";
+            if ([[HotelManager sharedManager] currentSortScheme] == HotelManagerSortSchemeTotalRateAscending)
+                [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+            else
+                [cell setAccessoryType:UITableViewCellAccessoryNone];
+            cell.textLabel.text = @"Sort by total rate";
             break;
         case 1:
+            if ([[HotelManager sharedManager] currentSortScheme] == HotelManagerSortSchemeDistanceFromCurrentLocationAscending)
+                [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+            else
+                [cell setAccessoryType:UITableViewCellAccessoryNone];
             cell.textLabel.text = @"Sort by distance from here";
             break;
         case 2:
+            if ([[HotelManager sharedManager] currentSortScheme] == HotelManagerSortSchemeStarRatingDescending)
+                [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+            else
+                [cell setAccessoryType:UITableViewCellAccessoryNone];
             cell.textLabel.text = @"Sort by star rating";
             break;
         default:
@@ -45,6 +57,53 @@
     }
     
     return cell;
+}
+
+#pragma Mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // uncheck the currently checked cell
+    switch ([[HotelManager sharedManager] currentSortScheme]) {
+        case HotelManagerSortSchemeTotalRateAscending:
+            [self uncheckCellAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            break;
+        case HotelManagerSortSchemeDistanceFromCurrentLocationAscending:
+            [self uncheckCellAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
+            break;
+        case HotelManagerSortSchemeStarRatingDescending:
+            [self uncheckCellAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]];
+            break;
+    }
+    
+    // check the new cell, resort the hotels
+    switch (indexPath.row) {
+        case 0:
+            [[HotelManager sharedManager] sortHotelsByScheme:HotelManagerSortSchemeTotalRateAscending];
+            [self checkCellAtIndexPath:indexPath];
+            break;
+        case 1:
+            [[HotelManager sharedManager] sortHotelsByScheme:HotelManagerSortSchemeDistanceFromCurrentLocationAscending];
+            [self checkCellAtIndexPath:indexPath];
+            break;
+        case 2:
+            [[HotelManager sharedManager] sortHotelsByScheme:HotelManagerSortSchemeStarRatingDescending];
+            [self checkCellAtIndexPath:indexPath];
+            break;
+        default:
+            break;
+    }
+    
+    // deselect row
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)uncheckCellAtIndexPath:(NSIndexPath*)indexPath {
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
+}
+
+- (void)checkCellAtIndexPath:(NSIndexPath*)indexPath {
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
 }
 
 #pragma Mark - UINavigationBarDelegate
