@@ -11,7 +11,7 @@
 @interface HotelManager ()
 
 @property (strong) NSMutableArray *hotels;
-@property HotelManagerSortScheme currentSortScheme;
+@property (readwrite) HotelManagerSortScheme currentSortScheme;
 
 @end
 

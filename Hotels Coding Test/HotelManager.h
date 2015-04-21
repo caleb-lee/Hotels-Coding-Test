@@ -32,4 +32,7 @@ typedef NS_ENUM(NSInteger, HotelManagerSortScheme) {
 // sorts the list of hotels by the user-given scheme
 - (void)sortHotelsByScheme:(HotelManagerSortScheme)sortScheme;
 
+// get the current sort scheme
+@property (readonly) HotelManagerSortScheme currentSortScheme;
+
 @end
