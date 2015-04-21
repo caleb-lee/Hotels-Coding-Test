@@ -7,6 +7,7 @@
 //
 
 #import "ListViewController.h"
+#import "HotelManager.h"
 
 @interface ListViewController ()
 
@@ -22,6 +23,21 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma Mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [[HotelManager sharedManager] count];
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"HotelCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    Hotel *hotel = [[HotelManager sharedManager] hotelAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - $%f", hotel.name, hotel.totalRate];
+    
+    return cell;
 }
 
 @end

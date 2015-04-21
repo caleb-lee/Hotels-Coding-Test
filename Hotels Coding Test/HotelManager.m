@@ -39,7 +39,7 @@
 // gets hotel at index (required: 0 <= index < count)
 - (Hotel*)hotelAtIndex:(NSInteger)index {
     if (index < 0 || index >= [self count])
-        [NSException raise:@"Out of Bounds Exception" format:@"hotelAtIndex: index %ld is out of bounds.", index];
+        [NSException raise:@"Out of Bounds Exception" format:@"hotelAtIndex: index %ld is out of bounds.", (long)index];
     
     return (Hotel*)[_hotels objectAtIndex:index];
 }
