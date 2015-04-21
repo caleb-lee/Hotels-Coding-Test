@@ -7,6 +7,7 @@
 //
 
 #import "HotelManager.h"
+#import "HotelJSONParser.h"
 
 @interface HotelManager ()
 
@@ -16,9 +17,6 @@
 @end
 
 @implementation HotelManager
-
-#define HOTEL_JSON_FILENAME @"hotels"
-#define HOTEL_JSON_KEY @"hotels"
 
 // this is a singleton class
 + (HotelManager*)sharedManager {
@@ -92,7 +90,8 @@
     self.hotels = [[NSMutableArray alloc] init];
     
     // get array of hotel dictionaries
-    NSArray *hotelDictionaries = [self readJSONHotels];
+    HotelJSONParser *jsonSource = [[HotelJSONParser alloc] init];
+    NSArray *hotelDictionaries = [jsonSource readJSONHotels];
     
     // fill hotels array with hotel objects created from the dictionary array
     for (NSDictionary *hotelDictionary in hotelDictionaries) {
@@ -104,19 +103,6 @@
     self.currentSortScheme = HotelManagerSortSchemeDistanceFromCurrentLocationAscending; // set the current sort scheme to something other than what we want
                                                                                         // so that the hotels get resorted for sure
     [self sortHotelsByScheme:HotelManagerSortSchemeTotalRateAscending];
-}
-
-// parses JSON file, generates an array of dictionaries containing hotel data
-- (NSArray*)readJSONHotels {
-    NSData *jsonFileData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:HOTEL_JSON_FILENAME ofType:@"json"]];
-    NSError *error;
-    NSDictionary *jsonParsedData = [NSJSONSerialization JSONObjectWithData:jsonFileData options:kNilOptions error:&error];
-    NSArray *results = [jsonParsedData valueForKey:HOTEL_JSON_KEY];
-    
-    if (error)
-        NSLog(@"%@", error);
-    
-    return results;
 }
 
 @end

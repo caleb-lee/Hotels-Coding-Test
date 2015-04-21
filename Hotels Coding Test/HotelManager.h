@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 Caleb Lee. All rights reserved.
 //
 
-// This class manages the current list of hotels. It will read from the JSON to generate
-//  a list and sort the list however the user specifies.
+// This class manages the current list of hotels. It will grab a collection
+//  of hotels from the JSON source and store them.
 
 #import <Foundation/Foundation.h>
 #import "Hotel.h"

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8433C9051AE6F33200321B87 /* SortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8433C9041AE6F33200321B87 /* SortViewController.m */; };
+		8433C9081AE6FD3A00321B87 /* HotelJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8433C9071AE6FD3A00321B87 /* HotelJSONParser.m */; };
 		84D9DB1C1AE6A360003C69B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DB1B1AE6A360003C69B3 /* main.m */; };
 		84D9DB1F1AE6A360003C69B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DB1E1AE6A360003C69B3 /* AppDelegate.m */; };
 		84D9DB221AE6A360003C69B3 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DB211AE6A360003C69B3 /* ListViewController.m */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		8433C9031AE6F33200321B87 /* SortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortViewController.h; sourceTree = "<group>"; };
 		8433C9041AE6F33200321B87 /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortViewController.m; sourceTree = "<group>"; };
+		8433C9061AE6FD3A00321B87 /* HotelJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelJSONParser.h; sourceTree = "<group>"; };
+		8433C9071AE6FD3A00321B87 /* HotelJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelJSONParser.m; sourceTree = "<group>"; };
 		84D9DB161AE6A360003C69B3 /* Hotels Coding Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hotels Coding Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D9DB1A1AE6A360003C69B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D9DB1B1AE6A360003C69B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 		84D9DB441AE6BF0A003C69B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8433C9061AE6FD3A00321B87 /* HotelJSONParser.h */,
+				8433C9071AE6FD3A00321B87 /* HotelJSONParser.m */,
 				84D9DB4C1AE6C80F003C69B3 /* HotelManager.h */,
 				84D9DB4D1AE6C80F003C69B3 /* HotelManager.m */,
 				84D9DB451AE6BF2E003C69B3 /* Hotel.h */,
@@ -258,6 +263,7 @@
 				8433C9051AE6F33200321B87 /* SortViewController.m in Sources */,
 				84D9DB471AE6BF2E003C69B3 /* Hotel.m in Sources */,
 				84D9DB1C1AE6A360003C69B3 /* main.m in Sources */,
+				8433C9081AE6FD3A00321B87 /* HotelJSONParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
