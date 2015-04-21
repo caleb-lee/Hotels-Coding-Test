@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  ListViewController.h
 //  Hotels Coding Test
 //
 //  Created by Caleb Lee on 2015/04/21.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface ListViewController : UIViewController
 
 
 @end

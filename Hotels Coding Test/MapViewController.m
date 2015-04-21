@@ -1,18 +1,18 @@
 //
-//  SecondViewController.m
+//  MapViewController.m
 //  Hotels Coding Test
 //
 //  Created by Caleb Lee on 2015/04/21.
 //  Copyright (c) 2015年 Caleb Lee. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "MapViewController.h"
 
-@interface SecondViewController ()
+@interface MapViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation MapViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

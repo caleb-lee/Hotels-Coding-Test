@@ -1,18 +1,18 @@
 //
-//  FirstViewController.m
+//  ListViewController.m
 //  Hotels Coding Test
 //
 //  Created by Caleb Lee on 2015/04/21.
 //  Copyright (c) 2015年 Caleb Lee. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "ListViewController.h"
 
-@interface FirstViewController ()
+@interface ListViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation ListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
