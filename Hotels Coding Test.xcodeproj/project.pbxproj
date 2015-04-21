@@ -17,6 +17,7 @@
 		84D9DB391AE6A360003C69B3 /* Hotels_Coding_TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DB381AE6A360003C69B3 /* Hotels_Coding_TestTests.m */; };
 		84D9DB471AE6BF2E003C69B3 /* Hotel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DB461AE6BF2E003C69B3 /* Hotel.m */; };
 		84D9DB4B1AE6C75B003C69B3 /* hotels.json in Resources */ = {isa = PBXBuildFile; fileRef = 84D9DB4A1AE6C75B003C69B3 /* hotels.json */; };
+		84D9DB4E1AE6C80F003C69B3 /* HotelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DB4D1AE6C80F003C69B3 /* HotelManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		84D9DB451AE6BF2E003C69B3 /* Hotel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hotel.h; sourceTree = "<group>"; };
 		84D9DB461AE6BF2E003C69B3 /* Hotel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hotel.m; sourceTree = "<group>"; };
 		84D9DB4A1AE6C75B003C69B3 /* hotels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hotels.json; sourceTree = "<group>"; };
+		84D9DB4C1AE6C80F003C69B3 /* HotelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelManager.h; sourceTree = "<group>"; };
+		84D9DB4D1AE6C80F003C69B3 /* HotelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 		84D9DB441AE6BF0A003C69B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84D9DB4C1AE6C80F003C69B3 /* HotelManager.h */,
+				84D9DB4D1AE6C80F003C69B3 /* HotelManager.m */,
 				84D9DB451AE6BF2E003C69B3 /* Hotel.h */,
 				84D9DB461AE6BF2E003C69B3 /* Hotel.m */,
 				84D9DB4A1AE6C75B003C69B3 /* hotels.json */,
@@ -241,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D9DB4E1AE6C80F003C69B3 /* HotelManager.m in Sources */,
 				84D9DB251AE6A360003C69B3 /* MapViewController.m in Sources */,
 				84D9DB1F1AE6A360003C69B3 /* AppDelegate.m in Sources */,
 				84D9DB221AE6A360003C69B3 /* ListViewController.m in Sources */,
