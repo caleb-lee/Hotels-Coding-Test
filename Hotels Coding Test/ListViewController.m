@@ -8,6 +8,7 @@
 
 #import "ListViewController.h"
 #import "HotelManager.h"
+#import "HotelTableViewCell.h"
 
 @interface ListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -18,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    // configure table
+    self.tableView.estimatedRowHeight = 110.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -39,10 +44,14 @@
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"HotelCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    HotelTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     Hotel *hotel = [[HotelManager sharedManager] hotelAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - $%f", hotel.name, hotel.totalRate];
+    
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@", hotel.name];
+    cell.priceLabel.text = [NSString stringWithFormat:@"$%.2f", hotel.totalRate];
+    cell.distanceLabel.text = [NSString stringWithFormat:@"%.2f mi away", hotel.distance];
+    cell.starsLabel.text = hotel.starRating == 1 ? @"1 star" : [NSString stringWithFormat:@"%ld stars", (long)hotel.starRating];
     
     return cell;
 }

@@ -87,12 +87,79 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HotelCell" id="gbS-Rj-ol0">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HotelCell" rowHeight="110" id="gbS-Rj-ol0" customClass="HotelTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbS-Rj-ol0" id="Bpg-qc-IP0">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vvU-k7-Z9Y">
+                                                    <rect key="frame" x="10" y="10" width="120" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="90" id="KOt-rd-q6d"/>
+                                                        <constraint firstAttribute="width" constant="120" id="Nrk-sm-XSv"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hotel Name" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8y-Rs-IYx">
+                                                    <rect key="frame" x="138" y="10" width="454" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1300.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7b-Qc-7ms">
+                                                    <rect key="frame" x="138" y="33" width="454" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="6DO-ES-Mt4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.7 mi away" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyF-gA-kXN">
+                                                    <rect key="frame" x="138" y="52" width="454" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="3ya-r7-sNG"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 stars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ym-Mz-cqC">
+                                                    <rect key="frame" x="138" y="71" width="454" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="IYU-9c-CY9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vvU-k7-Z9Y" firstAttribute="leading" secondItem="Bpg-qc-IP0" secondAttribute="leading" constant="10" id="8PP-On-y27"/>
+                                                <constraint firstAttribute="trailing" secondItem="iyF-gA-kXN" secondAttribute="trailing" constant="8" id="GEV-dV-Fdr"/>
+                                                <constraint firstItem="iyF-gA-kXN" firstAttribute="top" secondItem="d7b-Qc-7ms" secondAttribute="bottom" constant="-2" id="Juu-Zw-Mqr"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5ym-Mz-cqC" secondAttribute="bottom" constant="10" id="KAe-vG-r87"/>
+                                                <constraint firstItem="iyF-gA-kXN" firstAttribute="leading" secondItem="vvU-k7-Z9Y" secondAttribute="trailing" constant="8" id="MAE-jJ-qBZ"/>
+                                                <constraint firstItem="vvU-k7-Z9Y" firstAttribute="top" secondItem="Bpg-qc-IP0" secondAttribute="top" constant="10" id="QJc-rD-5uN"/>
+                                                <constraint firstAttribute="trailing" secondItem="m8y-Rs-IYx" secondAttribute="trailing" constant="8" id="R1h-YY-AcD"/>
+                                                <constraint firstAttribute="trailing" secondItem="5ym-Mz-cqC" secondAttribute="trailing" constant="8" id="d4I-BS-hpB"/>
+                                                <constraint firstItem="5ym-Mz-cqC" firstAttribute="top" secondItem="iyF-gA-kXN" secondAttribute="bottom" constant="-2" id="deh-6s-AqY"/>
+                                                <constraint firstItem="5ym-Mz-cqC" firstAttribute="leading" secondItem="vvU-k7-Z9Y" secondAttribute="trailing" constant="8" id="ff2-kK-ENd"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vvU-k7-Z9Y" secondAttribute="bottom" constant="9" id="fuX-N7-O7H"/>
+                                                <constraint firstItem="m8y-Rs-IYx" firstAttribute="leading" secondItem="vvU-k7-Z9Y" secondAttribute="trailing" constant="8" id="gUS-36-hTD"/>
+                                                <constraint firstItem="d7b-Qc-7ms" firstAttribute="top" secondItem="m8y-Rs-IYx" secondAttribute="bottom" constant="-1" id="gv5-0g-h44"/>
+                                                <constraint firstItem="m8y-Rs-IYx" firstAttribute="top" secondItem="Bpg-qc-IP0" secondAttribute="top" constant="10" id="lah-Pq-KRS"/>
+                                                <constraint firstAttribute="trailing" secondItem="d7b-Qc-7ms" secondAttribute="trailing" constant="8" id="nm5-yN-fu8"/>
+                                                <constraint firstItem="d7b-Qc-7ms" firstAttribute="leading" secondItem="vvU-k7-Z9Y" secondAttribute="trailing" constant="8" id="zGw-Fc-aKh"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="distanceLabel" destination="iyF-gA-kXN" id="5v7-NP-xbf"/>
+                                            <outlet property="nameLabel" destination="m8y-Rs-IYx" id="X5J-Sv-CIC"/>
+                                            <outlet property="priceLabel" destination="d7b-Qc-7ms" id="5Js-pB-qxt"/>
+                                            <outlet property="starsLabel" destination="5ym-Mz-cqC" id="Alj-3T-Sg3"/>
+                                            <outlet property="thumbnailImageView" destination="vvU-k7-Z9Y" id="IRv-z7-WkN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

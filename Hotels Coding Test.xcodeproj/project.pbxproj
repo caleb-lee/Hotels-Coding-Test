@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8433C9051AE6F33200321B87 /* SortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8433C9041AE6F33200321B87 /* SortViewController.m */; };
 		8433C9081AE6FD3A00321B87 /* HotelJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8433C9071AE6FD3A00321B87 /* HotelJSONParser.m */; };
+		8433C90B1AE70BDF00321B87 /* HotelTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8433C90A1AE70BDF00321B87 /* HotelTableViewCell.m */; };
 		84D9DB1C1AE6A360003C69B3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DB1B1AE6A360003C69B3 /* main.m */; };
 		84D9DB1F1AE6A360003C69B3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DB1E1AE6A360003C69B3 /* AppDelegate.m */; };
 		84D9DB221AE6A360003C69B3 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D9DB211AE6A360003C69B3 /* ListViewController.m */; };
@@ -37,6 +38,8 @@
 		8433C9041AE6F33200321B87 /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortViewController.m; sourceTree = "<group>"; };
 		8433C9061AE6FD3A00321B87 /* HotelJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelJSONParser.h; sourceTree = "<group>"; };
 		8433C9071AE6FD3A00321B87 /* HotelJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelJSONParser.m; sourceTree = "<group>"; };
+		8433C9091AE70BDF00321B87 /* HotelTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelTableViewCell.h; sourceTree = "<group>"; };
+		8433C90A1AE70BDF00321B87 /* HotelTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelTableViewCell.m; sourceTree = "<group>"; };
 		84D9DB161AE6A360003C69B3 /* Hotels Coding Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hotels Coding Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D9DB1A1AE6A360003C69B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D9DB1B1AE6A360003C69B3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 				84D9DB211AE6A360003C69B3 /* ListViewController.m */,
 				84D9DB231AE6A360003C69B3 /* MapViewController.h */,
 				84D9DB241AE6A360003C69B3 /* MapViewController.m */,
+				8433C9091AE70BDF00321B87 /* HotelTableViewCell.h */,
+				8433C90A1AE70BDF00321B87 /* HotelTableViewCell.m */,
 				84D9DB261AE6A360003C69B3 /* Main.storyboard */,
 				84D9DB291AE6A360003C69B3 /* Images.xcassets */,
 				84D9DB2B1AE6A360003C69B3 /* LaunchScreen.xib */,
@@ -259,6 +264,7 @@
 				84D9DB4E1AE6C80F003C69B3 /* HotelManager.m in Sources */,
 				84D9DB251AE6A360003C69B3 /* MapViewController.m in Sources */,
 				84D9DB1F1AE6A360003C69B3 /* AppDelegate.m in Sources */,
+				8433C90B1AE70BDF00321B87 /* HotelTableViewCell.m in Sources */,
 				84D9DB221AE6A360003C69B3 /* ListViewController.m in Sources */,
 				8433C9051AE6F33200321B87 /* SortViewController.m in Sources */,
 				84D9DB471AE6BF2E003C69B3 /* Hotel.m in Sources */,
