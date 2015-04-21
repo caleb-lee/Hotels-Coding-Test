@@ -40,7 +40,7 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Sort Hotels" id="6Ph-hi-0fv">
-                                        <barButtonItem key="rightBarButtonItem" title="Item" style="done" systemItem="done" id="DuB-SQ-l7f">
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="DuB-SQ-l7f">
                                             <connections>
                                                 <action selector="doneButtonAction:" destination="nAE-sg-Bq3" id="rKJ-eq-3RQ"/>
                                             </connections>
