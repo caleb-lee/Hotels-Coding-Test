@@ -11,6 +11,7 @@
 @interface HotelManager ()
 
 @property (strong) NSMutableArray *hotels;
+@property HotelManagerSortScheme currentSortScheme;
 
 @end
 
@@ -45,6 +46,10 @@
 
 // sorts the list of hotels by the user-given scheme
 - (void)sortHotelsByScheme:(HotelManagerSortScheme)sortScheme {
+    // check the current sort scheme; if it's the same as the user-given sort scheme, don't bother! we already have a sorted array
+    if (sortScheme == _currentSortScheme)
+        return;
+    
     // make first sort descriptor with the user-given sort scheme
     NSSortDescriptor *variableSortDescriptor;
     switch (sortScheme) {
@@ -67,6 +72,9 @@
     
     // set the class's array as the sorted array
     _hotels = [[NSMutableArray alloc] initWithArray:sortedArray];
+    
+    // set the current sort scheme
+    _currentSortScheme = sortScheme;
 }
 
 // when this class gets initialized, we want to generate the list of hotels
@@ -93,6 +101,8 @@
     }
     
     // sorts array by lowest to highest total rate
+    _currentSortScheme = HotelManagerSortSchemeDistanceFromCurrentLocationAscending; // set the current sort scheme to something other than what we want
+                                                                                        // so that the hotels get resorted for sure
     [self sortHotelsByScheme:HotelManagerSortSchemeTotalRateAscending];
 }
 
