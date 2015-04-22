@@ -29,7 +29,7 @@
         self.hotel = hotel;
         self.coordinate = CLLocationCoordinate2DMake(hotel.latitude, hotel.longitude);
         self.title = hotel.name;
-        self.subtitle = hotel.streetAddress;
+        self.subtitle = [NSString stringWithFormat:@"%.2f mi away; $%.2f", hotel.distance, hotel.totalRate];
     }
     
     return self;

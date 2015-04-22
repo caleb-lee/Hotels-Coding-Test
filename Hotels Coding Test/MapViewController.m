@@ -9,6 +9,8 @@
 #import "MapViewController.h"
 #import "HotelAnnotation.h"
 #import "HotelManager.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 @interface MapViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -33,8 +35,10 @@
     
     // drop hotel pins
     for (NSInteger i = 0; i < [[HotelManager sharedManager] count]; i++) {
+        Hotel *hotel = [[HotelManager sharedManager] hotelAtIndex:i];
+        
+        // use an autorelease pool so the annotations get released as the loop goes on instead of at the end
         @autoreleasepool {
-            Hotel *hotel = [[HotelManager sharedManager] hotelAtIndex:i];
             HotelAnnotation *annotation = [[HotelAnnotation alloc] initWithHotel:hotel];
             [self.mapView addAnnotation:annotation];
         }
@@ -44,6 +48,37 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma Mark - MKMapViewDelegate
+- (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    if ([annotation isKindOfClass:[HotelAnnotation class]]) {
+        HotelAnnotation *hotelAnnotation = (HotelAnnotation*)annotation;
+        
+        static NSString *customPinAnnotation = @"customPinAnnotation";
+        MKPinAnnotationView *pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:customPinAnnotation];
+        
+        if (pin == nil)
+            pin = [[MKPinAnnotationView alloc] initWithAnnotation:hotelAnnotation reuseIdentifier:customPinAnnotation];
+        
+        pin.canShowCallout = YES;
+        
+        pin.leftCalloutAccessoryView = [self prepareCalloutAccessoryViewFromAnnotation:hotelAnnotation];
+        
+        return pin;
+    }
+    
+    return nil;
+}
+
+- (UIView*)prepareCalloutAccessoryViewFromAnnotation:(HotelAnnotation*)annotation {
+    // make thumbnail view
+    UIImageView *thumbnailView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 60.0, 45.0)];
+    
+    // set the thumbnail image asyncrhonously
+    [thumbnailView sd_setImageWithURL:[NSURL URLWithString:annotation.hotel.thumbnailURL]];
+    
+    return thumbnailView;
 }
 
 @end
