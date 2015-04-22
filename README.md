@@ -1,6 +1,8 @@
 Hotels Coding Test
 
-This is a project that I created as part of the process of obtaining employment at Orbitz.
+This is a project that I created as part of the process of (hopefully) obtaining employment at Orbitz.
+
+Note: you must open this project using the .xcworkspace file.
 
 The requirements for the project were as follows:
 "Create an iOS application that does the following:
@@ -14,5 +16,3 @@ The requirements for the project were as follows:
   - Star rating from highest to lowest, using hotel name as a secondary sort key
 - The Map view should render the hotels on a UIMapView in the form of map pins. Add a custom map annovation view for the selected pin displaying the hotel’s name and thumbnail image.
 - Feel free to use any additional libraries, as well as Swift or Objective-C"
-
-(Note: this is still a WIP)
