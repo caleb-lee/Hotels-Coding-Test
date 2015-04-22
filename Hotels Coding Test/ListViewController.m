@@ -9,6 +9,7 @@
 #import "ListViewController.h"
 #import "HotelManager.h"
 #import "HotelTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -46,17 +47,15 @@
     static NSString *cellIdentifier = @"HotelCell";
     HotelTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    // set current image to nil and start activity indicator
-    cell.thumbnailImageView.image = nil;
     [cell.thumbnailLoadIndicator startAnimating];
     
     // get the hotel
     Hotel *hotel = [[HotelManager sharedManager] hotelAtIndex:indexPath.row];
     
-    // start loading the thumbnail
-    [hotel loadThumbnail:^(UIImage *thumbnail){
-        [cell.thumbnailLoadIndicator stopAnimating];
-        cell.thumbnailImageView.image = thumbnail;
+    // set the thumbnail asyncrhonously
+    [cell.thumbnailImageView sd_setImageWithURL:[NSURL URLWithString:hotel.thumbnailURL]
+        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            [cell.thumbnailLoadIndicator stopAnimating];
     }];
     
     // set all the other information

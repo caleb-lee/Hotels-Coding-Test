@@ -42,9 +42,4 @@
 //  information generated from the JSON
 - (id)initWithDictionary:(NSDictionary*)dictionary;
 
-// this method loads the thumbnail if it hasn't already been loaded
-//  if downloading, it does so asynchronously and runs the
-//  completion block on the main queue when done.
-- (void)loadThumbnail:(void (^)(UIImage *thumbnail))completion;
-
 @end
