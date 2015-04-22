@@ -209,9 +209,23 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0k2-1b-3pj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="0k2-1b-3pj" secondAttribute="bottom" id="9ze-i5-TpE"/>
+                            <constraint firstAttribute="trailing" secondItem="0k2-1b-3pj" secondAttribute="trailing" id="Jnc-Mc-59p"/>
+                            <constraint firstItem="0k2-1b-3pj" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="V4g-3p-D5s"/>
+                            <constraint firstItem="0k2-1b-3pj" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="uOZ-8D-s00"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="mapView" destination="0k2-1b-3pj" id="cMy-me-Cly"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>

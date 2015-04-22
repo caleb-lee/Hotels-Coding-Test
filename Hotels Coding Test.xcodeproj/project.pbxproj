@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2DC8FC5B84051BFB74EB2B27 /* libPods-Hotels Coding Test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F99B2AE31A13FF38B51C47 /* libPods-Hotels Coding Test.a */; };
+		841252321AE7E0CB00215808 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841252311AE7E0CB00215808 /* MapKit.framework */; };
+		841252351AE7E6CD00215808 /* HotelAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 841252341AE7E6CD00215808 /* HotelAnnotation.m */; };
 		842A441A1AE72C96003D3388 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842A44191AE72C96003D3388 /* ImageIO.framework */; };
 		8433C9051AE6F33200321B87 /* SortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8433C9041AE6F33200321B87 /* SortViewController.m */; };
 		8433C9081AE6FD3A00321B87 /* HotelJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8433C9071AE6FD3A00321B87 /* HotelJSONParser.m */; };
@@ -37,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		79C5AEAE38AD904EAAF5E1F0 /* Pods-Hotels Coding Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hotels Coding Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hotels Coding Test/Pods-Hotels Coding Test.release.xcconfig"; sourceTree = "<group>"; };
+		841252311AE7E0CB00215808 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		841252331AE7E6CD00215808 /* HotelAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelAnnotation.h; sourceTree = "<group>"; };
+		841252341AE7E6CD00215808 /* HotelAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelAnnotation.m; sourceTree = "<group>"; };
 		842A44191AE72C96003D3388 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		8433C9031AE6F33200321B87 /* SortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortViewController.h; sourceTree = "<group>"; };
 		8433C9041AE6F33200321B87 /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortViewController.m; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841252321AE7E0CB00215808 /* MapKit.framework in Frameworks */,
 				842A441A1AE72C96003D3388 /* ImageIO.framework in Frameworks */,
 				2DC8FC5B84051BFB74EB2B27 /* libPods-Hotels Coding Test.a in Frameworks */,
 			);
@@ -95,6 +101,30 @@
 				79C5AEAE38AD904EAAF5E1F0 /* Pods-Hotels Coding Test.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		841252361AE7EC0100215808 /* Hotel List */ = {
+			isa = PBXGroup;
+			children = (
+				84D9DB201AE6A360003C69B3 /* ListViewController.h */,
+				84D9DB211AE6A360003C69B3 /* ListViewController.m */,
+				8433C9091AE70BDF00321B87 /* HotelTableViewCell.h */,
+				8433C90A1AE70BDF00321B87 /* HotelTableViewCell.m */,
+				8433C9031AE6F33200321B87 /* SortViewController.h */,
+				8433C9041AE6F33200321B87 /* SortViewController.m */,
+			);
+			name = "Hotel List";
+			sourceTree = "<group>";
+		};
+		841252371AE7EC0F00215808 /* Hotel Map */ = {
+			isa = PBXGroup;
+			children = (
+				84D9DB231AE6A360003C69B3 /* MapViewController.h */,
+				84D9DB241AE6A360003C69B3 /* MapViewController.m */,
+				841252331AE7E6CD00215808 /* HotelAnnotation.h */,
+				841252341AE7E6CD00215808 /* HotelAnnotation.m */,
+			);
+			name = "Hotel Map";
 			sourceTree = "<group>";
 		};
 		84D9DB0D1AE6A360003C69B3 = {
@@ -123,14 +153,8 @@
 				84D9DB441AE6BF0A003C69B3 /* Model */,
 				84D9DB1D1AE6A360003C69B3 /* AppDelegate.h */,
 				84D9DB1E1AE6A360003C69B3 /* AppDelegate.m */,
-				8433C9031AE6F33200321B87 /* SortViewController.h */,
-				8433C9041AE6F33200321B87 /* SortViewController.m */,
-				84D9DB201AE6A360003C69B3 /* ListViewController.h */,
-				84D9DB211AE6A360003C69B3 /* ListViewController.m */,
-				84D9DB231AE6A360003C69B3 /* MapViewController.h */,
-				84D9DB241AE6A360003C69B3 /* MapViewController.m */,
-				8433C9091AE70BDF00321B87 /* HotelTableViewCell.h */,
-				8433C90A1AE70BDF00321B87 /* HotelTableViewCell.m */,
+				841252361AE7EC0100215808 /* Hotel List */,
+				841252371AE7EC0F00215808 /* Hotel Map */,
 				84D9DB261AE6A360003C69B3 /* Main.storyboard */,
 				84D9DB291AE6A360003C69B3 /* Images.xcassets */,
 				84D9DB2B1AE6A360003C69B3 /* LaunchScreen.xib */,
@@ -182,6 +206,7 @@
 		C19E7BA0779D0A043BFA181A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				841252311AE7E0CB00215808 /* MapKit.framework */,
 				842A44191AE72C96003D3388 /* ImageIO.framework */,
 				D8F99B2AE31A13FF38B51C47 /* libPods-Hotels Coding Test.a */,
 			);
@@ -333,6 +358,7 @@
 				84D9DB471AE6BF2E003C69B3 /* Hotel.m in Sources */,
 				84D9DB1C1AE6A360003C69B3 /* main.m in Sources */,
 				8433C9081AE6FD3A00321B87 /* HotelJSONParser.m in Sources */,
+				841252351AE7E6CD00215808 /* HotelAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
