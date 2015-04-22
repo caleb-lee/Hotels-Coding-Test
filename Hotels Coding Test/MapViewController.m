@@ -28,6 +28,11 @@
     [self setUpMap];
 }
 
+// hide the status bar for the map view controller; it looks better
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
+
 - (void)setUpMap {
     // show the region of the map we want to show
     CLLocationCoordinate2D chicagoCoordinates = CLLocationCoordinate2DMake(41.8781136, -87.6297982); // generic values to refer to chicago
@@ -52,6 +57,7 @@
 
 #pragma Mark - MKMapViewDelegate
 - (MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    // make and add a left accessory view to the callout if we're using a hotel annotation
     if ([annotation isKindOfClass:[HotelAnnotation class]]) {
         HotelAnnotation *hotelAnnotation = (HotelAnnotation*)annotation;
         
@@ -73,6 +79,7 @@
 
 - (UIView*)prepareCalloutAccessoryViewFromAnnotation:(HotelAnnotation*)annotation {
     // make thumbnail view
+    // thumbnails are all 120x90; halve that because accessory views are tiny
     UIImageView *thumbnailView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 60.0, 45.0)];
     
     // set the thumbnail image asyncrhonously
