@@ -186,7 +186,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Sort" id="thi-us-j2l">
                             <connections>
                                 <action selector="sortButtonAction:" destination="9pv-A4-QxB" id="ozH-qK-leX"/>
-                                <segue destination="nAE-sg-Bq3" kind="presentation" id="CoI-5I-vDg"/>
+                                <segue destination="nAE-sg-Bq3" kind="presentation" identifier="ListToSortSegue" id="CoI-5I-vDg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

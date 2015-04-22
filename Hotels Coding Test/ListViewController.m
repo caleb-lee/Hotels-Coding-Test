@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
+#define LIST_TO_SORT_SEGUE_IDENTIFIER @"ListToSortSegue"
+
 @implementation ListViewController
 
 - (void)viewDidLoad {
@@ -26,16 +28,24 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    // refresh table data whenever the view appears
+- (void)sortViewControllerDidChangeSortSetting:(SortViewController *)sortViewController {
+    // refresh table data whenever data gets resorted
     [self.tableView reloadData];
+    
+    // scroll table to top
+    [self.tableView scrollRectToVisible:CGRectMake(0.0, 0.0, 10.0, 10.0) animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:LIST_TO_SORT_SEGUE_IDENTIFIER]) {
+        SortViewController *dest = segue.destinationViewController;
+        dest.delegate = self;
+    }
 }
 
 #pragma Mark - UITableViewDataSource

@@ -12,11 +12,27 @@
 @interface SortViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)doneButtonAction:(id)sender;
+
+@property (nonatomic) HotelManagerSortScheme originalSortScheme;
+@property (nonatomic) HotelManagerSortScheme currentSortScheme;
 @end
 
 @implementation SortViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // set original sort scheme and current sort scheme
+    self.originalSortScheme = [[HotelManager sharedManager] currentSortScheme];
+    self.currentSortScheme = self.originalSortScheme;
+}
+
 - (IBAction)doneButtonAction:(id)sender {
+    // resort, call delegate, dismiss
+    if (self.originalSortScheme != self.currentSortScheme) {
+        [[HotelManager sharedManager] sortHotelsByScheme:self.currentSortScheme];
+        [self.delegate sortViewControllerDidChangeSortSetting:self];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -77,15 +93,15 @@
     // check the new cell, resort the hotels
     switch (indexPath.row) {
         case 0:
-            [[HotelManager sharedManager] sortHotelsByScheme:HotelManagerSortSchemeTotalRateAscending];
+            [self setCurrentSortScheme:HotelManagerSortSchemeTotalRateAscending];
             [self checkCellAtIndexPath:indexPath];
             break;
         case 1:
-            [[HotelManager sharedManager] sortHotelsByScheme:HotelManagerSortSchemeDistanceFromCurrentLocationAscending];
+            [self setCurrentSortScheme:HotelManagerSortSchemeDistanceFromCurrentLocationAscending];
             [self checkCellAtIndexPath:indexPath];
             break;
         case 2:
-            [[HotelManager sharedManager] sortHotelsByScheme:HotelManagerSortSchemeStarRatingDescending];
+            [self setCurrentSortScheme:HotelManagerSortSchemeStarRatingDescending];
             [self checkCellAtIndexPath:indexPath];
             break;
         default:

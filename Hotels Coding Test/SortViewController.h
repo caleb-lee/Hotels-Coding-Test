@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class SortViewController;
+
+@protocol SortViewControllerDelegate
+
+- (void)sortViewControllerDidChangeSortSetting:(SortViewController*)sortViewController;
+
+@end
+
 @interface SortViewController : UIViewController <UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, weak) id<SortViewControllerDelegate> delegate;
 
 @end

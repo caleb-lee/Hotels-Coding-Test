@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SortViewController.h"
 
-@interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface ListViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SortViewControllerDelegate>
 
 
 @end

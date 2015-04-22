@@ -12,7 +12,7 @@
 
 @interface HotelAnnotation : NSObject <MKAnnotation>
 
-// pulls the coordinate data, title (hotel name), and subtitle (address) from the hotel object
+// pulls the coordinate data, title (hotel name), and subtitle (distance away + price) from the hotel object
 - (id)initWithHotel:(Hotel*)hotel;
 @property (nonatomic, readonly) Hotel *hotel;
 
