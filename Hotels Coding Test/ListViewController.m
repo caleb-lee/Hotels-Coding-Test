@@ -46,8 +46,20 @@
     static NSString *cellIdentifier = @"HotelCell";
     HotelTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
+    // set current image to nil and start activity indicator
+    cell.thumbnailImageView.image = nil;
+    [cell.thumbnailLoadIndicator startAnimating];
+    
+    // get the hotel
     Hotel *hotel = [[HotelManager sharedManager] hotelAtIndex:indexPath.row];
     
+    // start loading the thumbnail
+    [hotel loadThumbnail:^(UIImage *thumbnail){
+        [cell.thumbnailLoadIndicator stopAnimating];
+        cell.thumbnailImageView.image = thumbnail;
+    }];
+    
+    // set all the other information
     cell.nameLabel.text = [NSString stringWithFormat:@"%@", hotel.name];
     cell.priceLabel.text = [NSString stringWithFormat:@"$%.2f", hotel.totalRate];
     cell.distanceLabel.text = [NSString stringWithFormat:@"%.2f mi away", hotel.distance];

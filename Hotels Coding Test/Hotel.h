@@ -11,6 +11,7 @@
 //  such as a Master ID and key.
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Hotel : NSObject
 
@@ -40,5 +41,10 @@
 // inits a hotel object using an NSDictionary containing the hotel
 //  information generated from the JSON
 - (id)initWithDictionary:(NSDictionary*)dictionary;
+
+// this method loads the thumbnail if it hasn't already been loaded
+//  if downloading, it does so asynchronously and runs the
+//  completion block on the main queue when done.
+- (void)loadThumbnail:(void (^)(UIImage *thumbnail))completion;
 
 @end

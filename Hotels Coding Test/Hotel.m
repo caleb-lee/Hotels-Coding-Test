@@ -15,6 +15,7 @@
 @property (strong, readwrite) NSString *key;
 @property (strong, readwrite) NSString *name;
 @property (strong, readwrite) NSString *thumbnailURL;
+@property (strong) UIImage *thumbnail;
 
 // location
 @property (strong, readwrite) NSString *streetAddress;
@@ -32,6 +33,9 @@
 @property (readwrite) double promotedNightlyRate;
 @property (readwrite) double totalRate;
 @property (readwrite) double promotedTotalRate;
+
+// image load NSOperationQueue
+@property (strong) NSOperationQueue *imageLoadQueue;
 
 @end
 
@@ -68,6 +72,40 @@
     }
     
     return self;
+}
+
+- (void)loadThumbnail:(void (^)(UIImage *thumbnail))completion {
+    // if completion isn't defined, our work is for nothing, so return
+    if (completion == nil)
+        return;
+    
+    // if we already have a thumbnail, don't load it again
+    if (self.thumbnail != nil) {
+        completion(self.thumbnail);
+    } else {
+        // load the thumbnail here
+        
+        // make the queue
+        if (self.imageLoadQueue == nil)
+            self.imageLoadQueue = [[NSOperationQueue alloc] init];
+        
+        // load image on separate queue
+        [self.imageLoadQueue addOperationWithBlock:^{
+            // make URL
+            NSURL *thumbnailURL = [NSURL URLWithString:self.thumbnailURL];
+            
+            // get data from URL
+            NSData *imageData = [NSData dataWithContentsOfURL:thumbnailURL];
+            
+            // make image from image data
+            UIImage *thumbnail = [UIImage imageWithData:imageData];
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                self.thumbnail = thumbnail;
+                completion(self.thumbnail);
+            }];
+        }];
+    }
 }
 
 @end
