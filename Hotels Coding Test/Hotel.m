@@ -15,7 +15,6 @@
 @property (strong, readwrite) NSString *key;
 @property (strong, readwrite) NSString *name;
 @property (strong, readwrite) NSString *thumbnailURL;
-@property (strong) UIImage *thumbnail;
 
 // location
 @property (strong, readwrite) NSString *streetAddress;

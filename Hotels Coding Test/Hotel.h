@@ -11,7 +11,6 @@
 //  such as a Master ID and key.
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @interface Hotel : NSObject
 
